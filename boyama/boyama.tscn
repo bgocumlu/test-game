@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://clwq1cgxmnx0p"]
+
+[ext_resource type="Script" uid="uid://biu4jxsar8ts8" path="res://boyama/boyama.gd" id="1_43axn"]
+[ext_resource type="PackedScene" uid="uid://8nj2dpy31red" path="res://boyama/region_base.tscn" id="3_ouj6e"]
+[ext_resource type="Script" uid="uid://6r7f8ypafd26" path="res://boyama/grid.gd" id="4_hdywn"]
+[ext_resource type="Texture2D" uid="uid://bhtpdghmbrbqe" path="res://boyama/assets/snail/snail.png" id="5_4ndrc"]
+[ext_resource type="Texture2D" uid="uid://c2ihgg2hqjhus" path="res://boyama/assets/flower.png" id="5_43axn"]
+
+[node name="Boyama" type="Node2D"]
+script = ExtResource("1_43axn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -117.0
+offset_right = 310.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 7
+script = ExtResource("4_hdywn")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(1, 0, 1, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer/Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0, 1, 1, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="CanvasLayer/Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Panel"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 70.0
+grow_horizontal = 2
+min_value = 15.0
+max_value = 30.0
+value = 18.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 211.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 41
+text = "Geri Dön"
+
+[node name="Flowers" parent="." instance=ExtResource("3_ouj6e")]
+position = Vector2(160.99997, 1723)
+scale = Vector2(0.49631605, 0.496316)
+texture = ExtResource("5_43axn")
+
+[node name="Snail" parent="." instance=ExtResource("3_ouj6e")]
+position = Vector2(538.0001, 869)
+texture = ExtResource("5_4ndrc")
+regions_folder = "res://boyama/assets/snail/"
+region_positions_path = "res://boyama/assets/snail/positions.json"
+
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_button_pressed"]

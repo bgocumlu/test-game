@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://neafyrt5gjco"]
+
+[ext_resource type="Script" uid="uid://cql7d4b7rpgxc" path="res://kovalara_yerlestir/ball.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://ic5npv5gwo51" path="res://kovalara_yerlestir/ball.png" id="1_x8fbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41u45"]
+radius = 56.293873
+
+[node name="Ball" type="Area2D"]
+script = ExtResource("1_41u45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_41u45")
+
+[node name="Ball" type="Sprite2D" parent="."]
+position = Vector2(0, 5.9604645e-08)
+scale = Vector2(0.312, 0.31200004)
+texture = ExtResource("1_x8fbi")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -121.0
+offset_top = -121.0
+offset_right = 119.0
+offset_bottom = 119.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
