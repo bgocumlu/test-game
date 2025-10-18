@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbfegn6yblm2o"]
-
-[ext_resource type="Texture2D" uid="uid://ic5npv5gwo51" path="res://kovalara_yerlestir/ball.png" id="1_sep7s"]
-[ext_resource type="Script" uid="uid://codmhwktt73ye" path="res://boyama/paint_sprite.gd" id="2_1e5nd"]
-
-[node name="PaintSprite" type="Sprite2D"]
-texture = ExtResource("1_sep7s")
-script = ExtResource("2_1e5nd")

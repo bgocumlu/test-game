@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://8nj2dpy31red"]
-
-[ext_resource type="Script" uid="uid://bsoptsgerrjju" path="res://boyama/region_loader.gd" id="2_d0toa"]
-
-[node name="Flowers" type="Sprite2D"]
-scale = Vector2(1.6566664, 1.6566663)
-script = ExtResource("2_d0toa")
